@@ -1,6 +1,15 @@
+
+
 .App {
   text-align: center;
 }
+
+/* * {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+} */
 
 .App-logo {
   height: 40vmin;
@@ -36,3 +45,4 @@
     transform: rotate(360deg);
   }
 }
+
