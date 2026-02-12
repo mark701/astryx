@@ -1,7 +1,7 @@
 {
   "name": "astryx",
   "version": "0.1.0",
-  "homepage": "https://github.com/mark701/astryx", 
+  "homepage": "https://mark701.github.io/astryx",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
