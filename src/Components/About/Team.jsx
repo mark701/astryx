@@ -34,7 +34,7 @@ const teamMembers = [
         bio: "game developer with Good experience.",
         social: { linkedin: "https://www.linkedin.com/in/mahmoud-adel-582497162/", Github: "https://github.com/DarkenSoda", itch: "https://darkensoda.itch.io/" },
     },
-        {
+    {
         name: "Omar Tantawy",
         role: "Game Developer",
         avatar: "/Assets/Images/OmarTantawy.png",
@@ -48,7 +48,7 @@ const teamMembers = [
         avatar: "/Assets/Images/HebatallahMohamed.jpg",
         initials: "HM",
         bio: "Expert in game engines and real-time rendering.",
-        social: { linkedin: "#", Github: "#", },
+        social: { linkedin: "https://www.linkedin.com/in/hebatallah-mohamed-/", VimeoIcon: "https://vimeo.com/user241404264", },
     },
 
 
@@ -84,7 +84,7 @@ const teamMembers = [
         bio: " Precision addict – ARC Raiders",
         social: { linkedin: "https://www.linkedin.com/in/youssef-yasser-896ab2344/" },
     },
-    
+
     // {
     //     name: "Mark Emad",
     //     role: "full stack developer",
@@ -108,6 +108,14 @@ const ItchIcon = ({ size = 14, className = "" }) => (
     <img
         src="/Assets/Icons/itch.ico"
         alt="itch.io"
+        style={{ width: size, height: size }}
+        className={`object-contain transition-all duration-200 ${className}`}
+    />
+);
+const VimeoIcon = ({ size = 14, className = "" }) => (
+    <img
+        src="/Assets/Icons/vimeo.ico"
+        alt="vimeo.ico"
         style={{ width: size, height: size }}
         className={`object-contain transition-all duration-200 ${className}`}
     />
@@ -290,6 +298,21 @@ const Team = () => {
                                                 />
                                             </a>
                                         )}
+                                        {member.social.VimeoIcon && (
+                                            <a
+                                                href={member.social.VimeoIcon}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="group w-8 h-8 rounded-full bg-muted hover:bg-primary flex items-center justify-center transition-colors"
+                                                aria-label="itch.io"
+                                            >
+                                                <VimeoIcon
+                                                    size={20}
+
+                                                />
+                                            </a>
+                                        )}
+                                        
 
                                     </div>
                                 </div>
