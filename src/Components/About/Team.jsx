@@ -15,7 +15,7 @@ const teamMembers = [
         role: "Game Developer",
         avatar: "/Assets/Images/roberNagy.png",
         initials: "RN",
-        bio: "game developer with Good experience.",
+        bio: "Creating fun and interactive games.",
         social: { linkedin: "https://www.linkedin.com/in/rober-nagy/", Github: "https://github.com/ROBERNAGY", itch: "https://rober-nagy.itch.io/" },
     },
     {
@@ -23,7 +23,7 @@ const teamMembers = [
         role: "Game Developer",
         avatar: "/Assets/Images/MohamedMagdy.png",
         initials: "MM",
-        bio: "game developer with Good experience.",
+        bio: "Developing fun digital game adventures.",
         social: { linkedin: "https://www.linkedin.com/in/mohamed-magdy--/", Github: "https://pofox.github.io/Mohamed-Magdy-portfolio/" },
     },
     {
@@ -31,7 +31,7 @@ const teamMembers = [
         role: "Game Developer",
         avatar: "/Assets/Images/MahmoudAdel.png",
         initials: "MA",
-        bio: "game developer with Good experience.",
+        bio: "Turning ideas into playable games.",
         social: { linkedin: "https://www.linkedin.com/in/mahmoud-adel-582497162/", Github: "https://github.com/DarkenSoda", itch: "https://darkensoda.itch.io/" },
     },
     {
@@ -47,7 +47,7 @@ const teamMembers = [
         role: "3D Animator & Rigger",
         avatar: "/Assets/Images/HebatallahMohamed.jpg",
         initials: "HM",
-        bio: "Expert in game engines and real-time rendering.",
+        bio: "breathed soul into characters before they move.",
         social: { linkedin: "https://www.linkedin.com/in/hebatallah-mohamed-/", VimeoIcon: "https://vimeo.com/user241404264", },
     },
 
