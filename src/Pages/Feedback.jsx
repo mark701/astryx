@@ -35,6 +35,22 @@ function Feedback() {
       setTimeout(() => setStatus(""), 4000);
       return;
     }
+       // Email validation
+    if (!formData.Email.trim()) {
+      setStatus("error");
+      setMessage("Please enter your email address.");
+      setTimeout(() => setStatus(""), 4000);
+      return;
+    }
+
+    // Basic email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.Email)) {
+      setStatus("error");
+      setMessage("Please enter a valid email address.");
+      setTimeout(() => setStatus(""), 4000);
+      return;
+    }
 
     if (!formData.familiarity) {
       setStatus("error");
@@ -105,7 +121,7 @@ function Feedback() {
     const formPayload = {
       access_key: WEB3FORMS_ACCESS_KEY,
       name: formData.name,
-      email: formData.Email || "Not provided", // Include email or default text
+      email: formData.Email ,
       familiarity: formData.familiarity,
       rating: `${formData.rating} stars`,
       trueSoulslike: formData.trueSoulslike,
@@ -138,6 +154,7 @@ function Feedback() {
         setFormData({
           name: "",
           familiarity: "",
+          Email:"",
           rating: 0,
           trueSoulslike: "",
           artStyle: "",
@@ -158,10 +175,11 @@ function Feedback() {
 
       } else {
         setStatus("error");
-        setMessage("Oops! Something went wrong. Please try again.");
+        setMessage(result.message || "Oops! Something went wrong. Please try again.");
         setTimeout(() => setStatus(""), 5000);
       }
     } catch (error) {
+      console.error("Submission error:", error);
       setStatus("error");
       setMessage("Failed to send feedback. Please check your connection.");
       setTimeout(() => setStatus(""), 5000);
@@ -302,7 +320,7 @@ function Feedback() {
             {/* Card with gradient border effect */}
             <div className="relative p-1 rounded-2xl bg-gradient-to-br from-primary/50 via-accent/50 to-primary/50 animate-pulse-slow">
               <div className="bg-background rounded-2xl p-8 md:p-10">
-                <form onSubmit={handleSubmit} className="space-y-8">
+                <form onSubmit={handleSubmit} className="space-y-8" noValidate>
                   {/* Name Field */}
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
@@ -331,7 +349,7 @@ function Feedback() {
                     transition={{ delay: 0.625 }}
                   >
                     <label className="block text-sm font-medium mb-3 text-foreground">
-                      Your Email <span className="text-muted-foreground text-xs">(Optional)</span>
+                      Your Email <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="email"
@@ -686,7 +704,7 @@ function Feedback() {
                     transition={{ delay: 1.05 }}
                   >
                     <label className="block text-sm font-medium mb-3 text-foreground">
-                      9. Your Feedback
+                      9. Your Feedback <span className="text-red-500">*</span>
                     </label>
                     <textarea
 
