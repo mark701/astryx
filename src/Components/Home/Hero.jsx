@@ -195,7 +195,7 @@ function Hero() {
               className="flex gap-8 pt-8"
             >
               {[
-                { value: "7+", label: "Projects Delivered" },
+                { value: "10+", label: "Projects Delivered" },
                 { value: "1+", label: "Year Experience" },
                 { value: "12+", label: "Team Members" },
               ].map((stat, index) => (

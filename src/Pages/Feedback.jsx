@@ -14,6 +14,8 @@ function Feedback() {
     uniqueness: "",
     recommend: "",
     purchase: "",
+    bugReports: "",
+    bugDescription: "",
     feedback: "",
   });
   const [hoveredStar, setHoveredStar] = useState(0);
@@ -93,6 +95,20 @@ function Feedback() {
       return;
     }
 
+    if (!formData.bugReports) {
+      setStatus("error");
+      setMessage("Please select Answer in the ninth Question.");
+      setTimeout(() => setStatus(""), 4000);
+      return;
+    }
+
+    if (formData.bugReports === "Yes" && !formData.bugDescription.trim()) {
+      setStatus("error");
+      setMessage("Please describe the bug reports.");
+      setTimeout(() => setStatus(""), 4000);
+      return;
+    }
+
     if (!formData.feedback.trim()) {
       setStatus("error");
       setMessage("Please provide your Last feedback.");
@@ -114,6 +130,8 @@ function Feedback() {
       uniqueness: formData.uniqueness,
       recommend: formData.recommend,
       purchase: formData.purchase,
+      bugReports: formData.bugReports,
+      bugDescription: formData.bugDescription,
       message: formData.feedback,
       subject: `New Feedback from ${formData.name} - ${formData.rating} stars`,
     };
@@ -145,6 +163,8 @@ function Feedback() {
           uniqueness: "",
           recommend: "",
           purchase: "",
+          bugReports: "",
+          bugDescription: "",
           feedback: "",
         });
 
@@ -679,14 +699,68 @@ function Feedback() {
                     </div>
                   </motion.div>
 
-                  {/* Feedback Field */}
+                  {/* Bug Reports Field */}
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1.05 }}
                   >
+                    <label className="block text-sm font-medium mb-4 text-foreground">
+                      9. Was there any bug reports ? <span className="text-red-500">*</span>
+                    </label>
+                    <div className="flex flex-wrap gap-4 md:gap-6">
+                      <RadioOption
+                        name="bugReports"
+                        value="Yes"
+                        checked={formData.bugReports === "Yes"}
+                        onChange={(e) =>
+                          handleOptionChange("bugReports", e.target.value)
+                        }
+                        label="Yes"
+                      />
+                      <RadioOption
+                        name="bugReports"
+                        value="No"
+                        checked={formData.bugReports === "No"}
+                        onChange={(e) =>
+                          handleOptionChange("bugReports", e.target.value)
+                        }
+                        label="No"
+                      />
+                    </div>
+                  </motion.div>
+
+                  {/* Bug Description Field */}
+                  {formData.bugReports === "Yes" && (
+                    <motion.div
+                      initial={{ opacity: 0, x: -20, height: 0 }}
+                      animate={{ opacity: 1, x: 0, height: "auto" }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <label className="block text-sm font-medium mb-3 text-foreground mt-4">
+                        Please describe the bugs <span className="text-red-500">*</span>
+                      </label>
+                      <textarea
+                        rows={3}
+                        value={formData.bugDescription}
+                        onChange={(e) =>
+                          setFormData({ ...formData, bugDescription: e.target.value })
+                        }
+                        className="w-full px-4 py-3 rounded-lg bg-muted/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
+                        placeholder="Tell us what bugs you encountered"
+                      />
+                    </motion.div>
+                  )}
+
+                  {/* Feedback Field */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1.1 }}
+                  >
                     <label className="block text-sm font-medium mb-3 text-foreground">
-                      9. Your Feedback
+                      10. Your Feedback <span className="text-red-500">*</span>
                     </label>
                     <textarea
 
